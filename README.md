@@ -1,8 +1,10 @@
 # TP Integrador - Juego del Ahorcado
 
-**Cátedra:** Metodologías Ágiles — UTN FRRO
+**Cátedra:** Metodologías Ágiles en el Desarrollo de Software — UTN FRRO
+
 **Grupo:** 12
-**Integrantes:** Esteban Karlen Aguirre; Gabriel Perlin; Tomas Sanchez Machado; Mateo Spertino
+
+**Integrantes:** Esteban Karlen Aguirre; Gabriel Perlin; Tomás Sanchez Machado; Mateo Spertino
 
 ## Descripción del producto
 
