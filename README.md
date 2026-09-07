@@ -2,7 +2,7 @@
 
 **Cátedra:** Metodologías Ágiles — UTN FRRO
 **Grupo:** 12
-**Integrantes:** _(completar con nombres y usuarios de GitHub)_
+**Integrantes:** Esteban Karlen Aguirre; Gabriel Perlin; Tomas Sanchez Machado; Mateo Spertino
 
 ## Descripción del producto
 
@@ -28,7 +28,7 @@ Crear una experiencia de juego simple, dinámica y confiable, con partidas corta
 
 El Story Map completo (User Journey, Features/Stories y cortes de Release) se encuentra documentado en:
 
-- `docs/story-map.md` (o el link a Miro: _completar_)
+https://miro.com/app/board/uXjVHwePskk=/?share_link_id=83546637908
 
 ### Alcance del MVP (Release 1)
 
@@ -40,7 +40,6 @@ El MVP se centra exclusivamente en poder **jugar una partida completa de punta a
 - Validar que solo se ingresen letras.
 - Descontar un intento ante letra incorrecta.
 - Ver cantidad de intentos restantes.
-- Detectar automáticamente fin de partida (ganó/perdió).
 - Validar letra repetida.
 - Ver mensaje de resultado (Ganó/Perdió).
 - Revelar la palabra completa si se pierde.
@@ -63,40 +62,8 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 
 ## Stack tecnológico
 
-_(completar una vez definido con el grupo: lenguaje, framework, testing frameworks, herramienta de CI/CD, hosting)_
-
-## Cómo correr el proyecto localmente
-
-```bash
-# clonar el repo
-git clone <URL_DEL_REPO>
-cd ahorcado-tp-agiles
-
-# instrucciones de instalación
-# (completar según stack elegido)
-```
-
-## Cómo correr los tests
-
-```bash
-# Unit tests
-# (completar)
-
-# Acceptance tests
-# (completar)
-```
-
-## Pipeline de CI/CD
-
-_(completar con el link al pipeline y una breve descripción de las etapas: build → unit tests → coverage → análisis estático → deploy → acceptance tests)_
-
-## Uso de IA durante el desarrollo
-
-Como equipo utilizamos IA como parte del flujo de trabajo durante todo el TP (exploración de alternativas, refinamiento de historias, generación de tests, revisión de código). Cada decisión, test y fragmento de código puede ser explicado y defendido por los integrantes del equipo.
-
-## Producto desplegado
-
-URL: _(completar una vez desplegado)_
+- **Lenguaje:** Python
+- **Testing (Unit Tests):** pytest
 
 ## Licencia
 
