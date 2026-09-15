@@ -10,3 +10,8 @@ def create_app():
         return render_template("index.html", word=oculta)
 
     return app
+
+# El botón de encendido
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
