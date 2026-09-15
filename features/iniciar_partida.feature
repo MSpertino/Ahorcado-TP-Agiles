@@ -1,3 +1,5 @@
+# language: es
+
 @HU-02
 Característica: Iniciar partida
   Como jugador casual
