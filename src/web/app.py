@@ -5,6 +5,8 @@ def create_app():
 
     @app.route("/")
     def index():
-        return render_template("index.html", word="_ _ _ _")
+        palabra = request.args.get("word", "")
+        oculta = " ".join("_" for _ in palabra)
+        return render_template("index.html", word=oculta)
 
     return app
