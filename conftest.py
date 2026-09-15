@@ -7,6 +7,12 @@ from werkzeug.serving import make_server
 
 from src.web.app import create_app
 
+from pytest_bdd import given, parsers
+
+@given(parsers.parse('una partida con la palabra "{palabra}"'), target_fixture="palabra_partida")
+def dado_partida(palabra):
+    return palabra
+
 @pytest.fixture(scope="session")
 def app():
     return create_app()

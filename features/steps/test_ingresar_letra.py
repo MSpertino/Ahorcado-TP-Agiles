@@ -2,10 +2,6 @@ from pytest_bdd import scenarios, given, when, then, parsers
 
 scenarios("../ingresar_letra.feature")
 
-@given(parsers.parse('una partida con la palabra "{palabra}"'), target_fixture="palabra_partida")
-def dado_partida(palabra):
-    return palabra
-
 @when(parsers.parse('el jugador ingresa la letra "{letra}"'))
 def cuando_ingresa_letra(page, palabra_partida, letra, live_server):
     page.goto(f"{live_server.url()}/?word={palabra_partida}")
