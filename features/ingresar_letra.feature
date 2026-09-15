@@ -10,3 +10,10 @@ Característica: Ingresar letra
     Dado una partida con la palabra "GATO"
     Cuando el jugador ingresa la letra "A"
     Entonces no se ve ningún mensaje de error
+
+  @CA-2
+  @CA-3
+  Escenario: El jugador intenta ingresar más de un carácter
+    Dado una partida con la palabra "GATO"
+    Cuando el jugador ingresa la letra "AB"
+    Entonces se ve un mensaje de entrada rechazada

@@ -13,3 +13,8 @@ def cuando_ingresa_letra(page, palabra_partida, letra, live_server):
 def entonces_no_hay_error(page):
     error_el = page.get_by_test_id("error-message")
     assert error_el.text_content() == ""
+
+@then("se ve un mensaje de entrada rechazada")
+def entonces_hay_error(page):
+    error_el = page.get_by_test_id("error-message")
+    assert error_el.text_content() != ""
