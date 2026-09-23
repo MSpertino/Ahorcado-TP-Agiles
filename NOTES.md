@@ -14,9 +14,9 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
 | HU-02 Iniciar partida     | CA-1 palabra oculta con guiones                      | `iniciar_partida.feature` — El jugador inicia una partida con una palabra / … más larga |                       | AT verde                              |
 | HU-03 Ingresar letra      | CA-1 ingresa un solo carácter                       | `ingresar_letra.feature` — El jugador ingresa un solo carácter válido                   |                       | AT verde, a reescribir (ver feedback) |
 | HU-03 Ingresar letra      | CA-2 / CA-3 rechaza más de un carácter con mensaje | `ingresar_letra.feature` — El jugador intenta ingresar más de un carácter               |                       | AT verde                              |
-| HU-04 Validar solo letras | CA-1 rechaza números, símbolos y espacios          |                                                                                              |                       |                                       |
+| HU-04 Validar solo letras | CA-1 rechaza números, símbolos y espacios          | `validar_entrada.feature` — El jugador ingresa un carácter que no es letra (3, #) / … un espacio |                       | AT rojo                               |
 | HU-04 Validar solo letras | CA-2 no descuenta intento                            |                                                                                              |                       |                                       |
-| HU-04 Validar solo letras | CA-3 mensaje de error visible                        |                                                                                              |                       |                                       |
+| HU-04 Validar solo letras | CA-3 mensaje de error visible                        | (mismos escenarios que CA-1: verifican el mensaje exacto "Solo se permiten letras")          |                       | AT rojo                               |
 
 ## Decisiones
 
