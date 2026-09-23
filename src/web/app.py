@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+from src.domain.ahorcado import Ahorcado, EntradaInvalida
+
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
 
@@ -7,7 +9,13 @@ def create_app():
     def index():
         palabra = request.args.get("word", "")
         oculta = " ".join("_" for _ in palabra)
-        return render_template("index.html", word=oculta)
+        error = ""
+        if "letra" in request.args:
+            try:
+                Ahorcado(palabra).arriesgar(request.args["letra"])
+            except EntradaInvalida as e:
+                error = str(e)
+        return render_template("index.html", word=oculta, palabra=palabra, error=error)
 
     return app
 

@@ -8,8 +8,11 @@
 
 <body>
   <p>Palabra: <span data-testid="word">{{ word }}</span></p>
-  <input type="text" data-testid="letra-input" />
-  <p data-testid="error-message"></p>
+  <form method="get" action="/">
+    <input type="hidden" name="word" value="{{ palabra }}" />
+    <input type="text" name="letra" data-testid="letra-input" />
+  </form>
+  <p data-testid="error-message">{{ error }}</p>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
