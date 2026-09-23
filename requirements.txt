@@ -5,10 +5,12 @@ colorama==0.4.6
 cucumber-expressions==20.1.0
 cucumber-tag-expressions==11.0.1
 Flask==3.1.3
+gherkin-official==29.0.0
 greenlet==3.5.6
 iniconfig==2.3.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
+Mako==1.4.3
 MarkupSafe==3.0.3
 packaging==26.3
 parse==1.22.1
@@ -18,6 +20,7 @@ pluggy==1.6.0
 pyee==13.0.1
 Pygments==2.21.0
 pytest==9.1.1
+pytest-bdd==8.1.0
 six==1.17.0
 typing_extensions==4.16.0
 Werkzeug==3.1.8

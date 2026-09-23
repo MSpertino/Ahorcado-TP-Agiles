@@ -17,4 +17,4 @@ def entonces_no_hay_error(page):
 @then("se ve un mensaje de entrada rechazada")
 def entonces_hay_error(page):
     error_el = page.get_by_test_id("error-message")
-    assert error_el.text_content() != ""
+    assert error_el.text_content() == "Solo se permite una letra por vez"
