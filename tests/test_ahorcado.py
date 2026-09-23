@@ -3,10 +3,11 @@ import pytest
 from src.domain.ahorcado import Ahorcado, EntradaInvalida
 
 
-def test_arriesgar_un_numero_se_rechaza_porque_solo_se_permiten_letras():
+@pytest.mark.parametrize("entrada", ["3", "#", " "], ids=["numero", "simbolo", "espacio"])
+def test_arriesgar_algo_que_no_es_letra_se_rechaza(entrada):
     juego = Ahorcado("GATO")
     with pytest.raises(EntradaInvalida, match="Solo se permiten letras"):
-        juego.arriesgar("3")
+        juego.arriesgar(entrada)
 
 
 def test_arriesgar_una_letra_no_se_rechaza():
