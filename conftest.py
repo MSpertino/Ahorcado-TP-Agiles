@@ -10,12 +10,12 @@ from src.web.app import create_app
 from pytest_bdd import given, when, parsers
 
 @given(parsers.parse('una partida con la palabra "{palabra}"'), target_fixture="palabra_partida")
-def dado_partida(palabra):
+def dado_partida(page, live_server, palabra):
+    page.goto(f"{live_server.url()}/?word={palabra}")
     return palabra
 
 @when(parsers.parse('el jugador ingresa la letra "{letra}"'))
-def cuando_ingresa_letra(page, palabra_partida, letra, live_server):
-    page.goto(f"{live_server.url()}/?word={palabra_partida}")
+def cuando_ingresa_letra(page, letra):
     input_el = page.get_by_test_id("letra-input")
     input_el.fill(letra)
     input_el.press("Enter")
