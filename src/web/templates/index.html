@@ -8,6 +8,7 @@
 
 <body>
   <p>Palabra: <span data-testid="word">{{ word }}</span></p>
+  <p>Intentos restantes: <span data-testid="intentos">{{ intentos }}</span></p>
   <form method="get" action="/">
     <input type="hidden" name="word" value="{{ palabra }}" />
     <input type="text" name="letra" data-testid="letra-input" />

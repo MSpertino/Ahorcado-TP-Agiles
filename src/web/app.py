@@ -15,7 +15,7 @@ def create_app():
                 juego.arriesgar(request.args["letra"])
             except EntradaInvalida as e:
                 error = str(e)
-        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=palabra, error=error)
+        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=palabra, error=error, intentos=juego.intentos_restantes)
 
     return app
 
