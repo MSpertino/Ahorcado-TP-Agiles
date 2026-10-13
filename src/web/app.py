@@ -8,14 +8,14 @@ def create_app():
     @app.route("/")
     def index():
         palabra = request.args.get("word", "")
-        oculta = " ".join("_" for _ in palabra)
+        juego = Ahorcado(palabra)
         error = ""
         if "letra" in request.args:
             try:
-                Ahorcado(palabra).arriesgar(request.args["letra"])
+                juego.arriesgar(request.args["letra"])
             except EntradaInvalida as e:
                 error = str(e)
-        return render_template("index.html", word=oculta, palabra=palabra, error=error)
+        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=palabra, error=error)
 
     return app
 
