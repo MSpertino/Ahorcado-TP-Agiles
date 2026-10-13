@@ -21,3 +21,7 @@ def test_arriesgar_letra_acertada_revela_letra():
     juego = Ahorcado("GATO")
     juego.arriesgar("A")
     assert juego.palabra_enmascarada() == "_ A _ _"
+
+def test_una_partida_nueva_tiene_6_intentos_restantes():
+    juego = Ahorcado("GATO")
+    assert juego.intentos_restantes == 6
