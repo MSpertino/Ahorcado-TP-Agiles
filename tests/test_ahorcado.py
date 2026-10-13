@@ -16,3 +16,8 @@ def test_arriesgar_mas_de_una_letra_se_rechaza():
     juego = Ahorcado("GATO")
     with pytest.raises(EntradaInvalida, match="Solo se permite una letra por vez"):
         juego.arriesgar("AB")
+
+def test_arriesgar_letra_acertada_revela_letra():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("A")
+    assert juego.palabra_enmascarada() == "_ A _ _"
