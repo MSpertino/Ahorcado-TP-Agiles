@@ -6,10 +6,10 @@ Característica: Ingresar letra
   para ir descubriendo la palabra progresivamente
 
   @CA-1
-  Escenario: El jugador ingresa un solo carácter válido
+  Escenario: El jugador ingresa una letra y se revela en la palabra
     Dado una partida con la palabra "GATO"
     Cuando el jugador ingresa la letra "A"
-    Entonces no se ve ningún mensaje de error
+    Entonces se ve la palabra "_ A _ _"
 
   @CA-2
   @CA-3
