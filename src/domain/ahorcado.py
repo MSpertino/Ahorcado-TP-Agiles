@@ -5,6 +5,7 @@ class Ahorcado:
     def __init__(self, palabra):
         self.palabra = palabra
         self.letras_arriesgadas = set()
+        self.intentos_restantes = 6
 
     def arriesgar(self, letra):
         if len(letra) > 1:
