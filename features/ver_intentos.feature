@@ -8,4 +8,4 @@ Característica: Ver intentos restantes
   @CA-1
   Escenario: El jugador ve sus intentos restantes al iniciar la partida
     Dado una partida con la palabra "GATO"
-    Entonces se ven 7 intentos restantes
+    Entonces se ven 6 intentos restantes
