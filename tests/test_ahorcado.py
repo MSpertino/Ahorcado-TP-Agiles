@@ -41,3 +41,8 @@ def test_fallar_letra_descuenta_intento():
     juego = Ahorcado("GATO")
     juego.arriesgar("E")
     assert juego.intentos_restantes == 5
+
+def test_acertar_letra_no_descuenta_intento():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("A")
+    assert juego.intentos_restantes == 6
