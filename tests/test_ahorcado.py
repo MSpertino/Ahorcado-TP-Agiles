@@ -53,3 +53,9 @@ def test_arriesgar_entrada_invalida_no_descuenta_intento(entrada):
     with pytest.raises(EntradaInvalida):
         juego.arriesgar(entrada)
     assert juego.intentos_restantes == 6
+
+def test_arriesgar_letra_minuscula_revela_sin_descontar_intento():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("a")
+    assert juego.palabra_enmascarada() == "_ A _ _"
+    assert juego.intentos_restantes == 6
