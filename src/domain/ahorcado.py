@@ -13,7 +13,8 @@ class Ahorcado:
         if not letra.isalpha():
             raise EntradaInvalida("Solo se permiten letras")
         self.letras_arriesgadas.add(letra)
-        self.intentos_restantes = 5
+        if letra not in self.palabra:
+            self.intentos_restantes -= 1
 
     def palabra_enmascarada(self):
         return " ".join(letra if letra in self.letras_arriesgadas else "_" for letra in self.palabra)
