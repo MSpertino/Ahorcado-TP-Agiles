@@ -9,22 +9,34 @@ permissions:
   contents: read
 
 jobs:
-  unit-tests:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
-
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: '3.12'
           cache: pip
-
       - name: Instalar dependencias
         run: pip install -r requirements.txt
+      - name: Compilar
+        run: python -m compileall -q src
 
-      - name: Unit tests
-        run: python -m pytest tests/ -q
+  unit-tests:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Unit tests y coverage del dominio (mínimo 90%)
+        run: python -m pytest tests/ --cov=src/domain --cov-report=term-missing --cov-report=xml --cov-fail-under=90
 
   acceptance-tests:
     needs: unit-tests
@@ -32,17 +44,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
-
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: '3.12'
           cache: pip
-
       - name: Instalar dependencias
         run: pip install -r requirements.txt
-
       - name: Instalar Chromium
         run: playwright install --with-deps chromium
-
       - name: Acceptance tests
         run: python -m pytest features/ -q
