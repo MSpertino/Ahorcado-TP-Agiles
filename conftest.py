@@ -57,3 +57,7 @@ def page(browser):
 @then(parsers.parse("se ven {intentos:d} intentos restantes"))
 def entonces_ve_intentos(page, intentos):
     assert page.get_by_test_id("intentos").text_content() == str(intentos)
+
+@when("el jugador abre el juego sin indicar palabra")
+def abrir_juego_sin_palabra(page, live_server):
+    page.goto(f"{live_server.url()}/")
