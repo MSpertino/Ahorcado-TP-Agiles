@@ -11,6 +11,13 @@ Característica: Ingresar letra
     Cuando el jugador ingresa la letra "A"
     Entonces se ve la palabra "_ A _ _"
 
+  @CA-1
+  Escenario: El jugador ingresa una letra en minúscula y se revela sin perder intentos
+    Dado una partida con la palabra "GATO"
+    Cuando el jugador ingresa la letra "a"
+    Entonces se ve la palabra "_ A _ _"
+    Y se ven 6 intentos restantes
+
   @CA-2
   @CA-3
   Escenario: El jugador intenta ingresar más de un carácter
