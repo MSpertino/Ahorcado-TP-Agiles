@@ -7,7 +7,7 @@ def create_app():
 
     @app.route("/")
     def index():
-        palabra = request.args.get("word", "")
+        palabra = request.args.get("word", "GATO")
         juego = Ahorcado(palabra)
         error = ""
         if "letra" in request.args:
