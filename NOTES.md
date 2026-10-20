@@ -7,17 +7,25 @@ prefijo `HU-xx` en los commits y esta matriz para el tramo AT → UT.
 
 Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pytest -m "HU-03 and CA-2" features/`
 
+## Próximos UTs a desarrollar (HU-05)
+
+- UT1: Fallar una letra ("E" en "GATO") deja los intentos restantes en 5.
+- UT2: Acertar una letra ("A" en "GATO") mantiene los intentos en 6.
+
 ## Matriz
 
-| Historia                  | Criterio                                           | Escenario (AT)                                                                                   | Unit Tests (Ahorcado)                                                                                                | Estado                                |
-| ------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| HU-02 Iniciar partida     | CA-1 palabra oculta con guiones                    | `iniciar_partida.feature` — El jugador inicia una partida con una palabra / … más larga          |                                                                                                                      | AT verde                              |
-| HU-03 Ingresar letra | CA-1 revelar letra acertada | `ingresar_letra.feature` — El jugador ingresa una letra y se revela en la palabra | `test_arriesgar_letra_acertada_revela_letra`, `test_arriesgar_letra_revela_multiples_ocurrencias`, `test_arriesgar_letra_no_presente_no_revela_nada` | AT verde, UT verde |
-| HU-03 Ingresar letra      | CA-2 / CA-3 rechaza más de un carácter con mensaje | `ingresar_letra.feature` — El jugador intenta ingresar más de un carácter                        | `test_arriesgar_mas_de_una_letra_se_rechaza`                                                                         | AT verde, UT verde                    |
-| HU-04 Validar solo letras | CA-1 rechaza números, símbolos y espacios          | `validar_entrada.feature` — El jugador ingresa un carácter que no es letra (3, #) / … un espacio | `test_arriesgar_algo_que_no_es_letra_se_rechaza[numero, simbolo, espacio]`, `test_arriesgar_una_letra_no_se_rechaza` | AT verde, UT verde                    |
-| HU-04 Validar solo letras | CA-2 no descuenta intento                          |                                                                                                  |                                                                                                                      |                                       |
-| HU-04 Validar solo letras | CA-3 mensaje de error visible                      | (mismos escenarios que CA-1: verifican el mensaje exacto "Solo se permiten letras")              |                                                                                                                      | AT verde, UT verde                    |
-| HU-06 Ver intentos        | CA-1 al iniciar se ven 6 intentos                  | `ver_intentos.feature` — El jugador ve sus intentos restantes al iniciar la partida              | `test_una_partida_nueva_tiene_6_intentos_restantes`                                                                  | AT verde, UT verde                    |
+| Historia                  | Criterio                                           | Escenario (AT)                                                                                   | Unit Tests (Ahorcado)                                                                                                                                | Estado             |
+| ------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| HU-02 Iniciar partida     | CA-1 palabra oculta con guiones                    | `iniciar_partida.feature` — El jugador inicia una partida con una palabra / … más larga          |                                                                                                                                                      | AT verde           |
+| HU-03 Ingresar letra      | CA-1 revelar letra acertada                        | `ingresar_letra.feature` — El jugador ingresa una letra y se revela en la palabra                | `test_arriesgar_letra_acertada_revela_letra`, `test_arriesgar_letra_revela_multiples_ocurrencias`, `test_arriesgar_letra_no_presente_no_revela_nada` | AT verde, UT verde |
+| HU-03 Ingresar letra      | CA-2 / CA-3 rechaza más de un carácter con mensaje | `ingresar_letra.feature` — El jugador intenta ingresar más de un carácter                        | `test_arriesgar_mas_de_una_letra_se_rechaza`                                                                                                         | AT verde, UT verde |
+| HU-04 Validar solo letras | CA-1 rechaza números, símbolos y espacios          | `validar_entrada.feature` — El jugador ingresa un carácter que no es letra (3, #) / … un espacio | `test_arriesgar_algo_que_no_es_letra_se_rechaza[numero, simbolo, espacio]`, `test_arriesgar_una_letra_no_se_rechaza`                                 | AT verde, UT verde |
+| HU-04 Validar solo letras | CA-2 no descuenta intento                          |                                                                                                  |                                                                                                                                                      |                    |
+| HU-04 Validar solo letras | CA-3 mensaje de error visible                      | (mismos escenarios que CA-1: verifican el mensaje exacto "Solo se permiten letras")              |                                                                                                                                                      | AT verde, UT verde |
+| HU-06 Ver intentos        | CA-1 al iniciar se ven 6 intentos                  | `ver_intentos.feature` — El jugador ve sus intentos restantes al iniciar la partida              | `test_una_partida_nueva_tiene_6_intentos_restantes`                                                                                                  | AT verde, UT verde |
+
+| HU-05 Descontar intento | CA-1 disminuye ante letra incorrecta | `fallar_letra.feature` — El jugador falla una letra | `test_fallar_letra_descuenta_intento` | AT rojo (por hacer) |
+| HU-05 Descontar intento | CA-2 sin cambios ante letra correcta | | `test_acertar_letra_no_descuenta_intento` | UT rojo (por hacer) |
 
 ## Decisiones
 
