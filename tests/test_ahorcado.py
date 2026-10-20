@@ -46,3 +46,10 @@ def test_acertar_letra_no_descuenta_intento():
     juego = Ahorcado("GATO")
     juego.arriesgar("A")
     assert juego.intentos_restantes == 6
+
+@pytest.mark.parametrize("entrada", ["3", "#", " "], ids=["numero", "simbolo", "espacio"])
+def test_arriesgar_entrada_invalida_no_descuenta_intento(entrada):
+    juego = Ahorcado("GATO")
+    with pytest.raises(EntradaInvalida):
+        juego.arriesgar(entrada)
+    assert juego.intentos_restantes == 6
