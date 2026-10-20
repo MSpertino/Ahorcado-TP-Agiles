@@ -7,7 +7,7 @@ from werkzeug.serving import make_server
 
 from src.web.app import create_app
 
-from pytest_bdd import given, when, parsers
+from pytest_bdd import given, when, parsers, then
 
 @given(parsers.parse('una partida con la palabra "{palabra}"'), target_fixture="palabra_partida")
 def dado_partida(page, live_server, palabra):
@@ -53,3 +53,7 @@ def page(browser):
     page = browser.new_page()
     yield page
     page.close()
+
+@then(parsers.parse("se ven {intentos:d} intentos restantes"))
+def entonces_ve_intentos(page, intentos):
+    assert page.get_by_test_id("intentos").text_content() == str(intentos)
