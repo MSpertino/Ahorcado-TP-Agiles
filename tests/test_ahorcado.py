@@ -36,3 +36,8 @@ def test_arriesgar_letra_no_presente_no_revela_nada():
     juego = Ahorcado("GATO")
     juego.arriesgar("Z")
     assert juego.palabra_enmascarada() == "_ _ _ _"
+
+def test_fallar_letra_descuenta_intento():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    assert juego.intentos_restantes == 5
