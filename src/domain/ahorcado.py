@@ -12,6 +12,7 @@ class Ahorcado:
             raise EntradaInvalida("Solo se permite una letra por vez")
         if not letra.isalpha():
             raise EntradaInvalida("Solo se permiten letras")
+        letra = letra.upper()
         self.letras_arriesgadas.add(letra)
         if letra not in self.palabra:
             self.intentos_restantes -= 1
