@@ -13,6 +13,8 @@ class Ahorcado:
         if not letra.isalpha():
             raise EntradaInvalida("Solo se permiten letras")
         letra = letra.upper()
+        if letra in self.letras_arriesgadas:
+            raise EntradaInvalida("Ya ingresaste esa letra")
         self.letras_arriesgadas.add(letra)
         if letra not in self.palabra:
             self.intentos_restantes -= 1
