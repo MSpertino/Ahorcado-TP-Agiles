@@ -61,3 +61,8 @@ def entonces_ve_intentos(page, intentos):
 @when("el jugador abre el juego sin indicar palabra")
 def abrir_juego_sin_palabra(page, live_server):
     page.goto(f"{live_server.url()}/")
+
+@then(parsers.parse('se ve el mensaje de error "{mensaje}"'))
+def entonces_ve_mensaje_error(page, mensaje):
+    error_el = page.get_by_test_id("error-message")
+    assert error_el.text_content() == mensaje
