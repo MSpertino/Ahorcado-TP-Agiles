@@ -1,21 +1,29 @@
-from flask import Flask, render_template, request
+import os
+
+from flask import Flask, render_template, request, session
 
 from src.domain.ahorcado import Ahorcado, EntradaInvalida
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
+    app.secret_key = os.environ.get("SECRET_KEY", "dev")
 
     @app.route("/")
     def index():
-        palabra = request.args.get("word", "GATO")
-        juego = Ahorcado(palabra)
+        if "letra" not in request.args or "palabra" not in session:
+            session["palabra"] = request.args.get("word", "GATO")
+            session["letras"] = []
+        juego = Ahorcado(session["palabra"])
+        for letra in session["letras"]:
+            juego.arriesgar(letra)
         error = ""
         if "letra" in request.args:
             try:
                 juego.arriesgar(request.args["letra"])
+                session["letras"] = session["letras"] + [request.args["letra"]]
             except EntradaInvalida as e:
                 error = str(e)
-        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=palabra, error=error, intentos=juego.intentos_restantes)
+        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=session["palabra"], error=error, intentos=juego.intentos_restantes)
 
     return app
 

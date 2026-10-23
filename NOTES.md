@@ -21,9 +21,9 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
 | HU-05 Descontar intento | CA-1 disminuye ante letra incorrecta | `fallar_letra.feature` — El jugador falla una letra | `test_fallar_letra_descuenta_intento` | AT verde, UT verde |
 | HU-05 Descontar intento | CA-2 sin cambios ante letra correcta | | `test_acertar_letra_no_descuenta_intento` | UT verde |
 | HU-06 Ver intentos | CA-1 al iniciar se ven 6 intentos | `ver_intentos.feature` — El jugador ve sus intentos restantes al iniciar la partida | `test_una_partida_nueva_tiene_6_intentos_restantes` | AT verde, UT verde |
-| HU-07 Validar letra repetida | CA-1 mensaje de aviso ante letra ya usada | `letra_repetida.feature` — El jugador ingresa una letra que ya usó | `test_arriesgar_letra_repetida_se_rechaza` | AT rojo, UT verde |
-| HU-07 Validar letra repetida | CA-2 sin descuento ante letra repetida | `letra_repetida.feature` — Repetir una letra fallada no descuenta otro intento | | AT rojo (por hacer) |
-| HU-07 Validar letra repetida | CA-3 registro de letras durante toda la partida | (mismos escenarios que CA-1 y CA-2: necesitan varias jugadas en la misma partida) | | AT rojo (por hacer) |
+| HU-07 Validar letra repetida | CA-1 mensaje de aviso ante letra ya usada | `letra_repetida.feature` — El jugador ingresa una letra que ya usó | `test_arriesgar_letra_repetida_se_rechaza` | AT verde, UT verde |
+| HU-07 Validar letra repetida | CA-2 sin descuento ante letra repetida | `letra_repetida.feature` — Repetir una letra fallada no descuenta otro intento | | AT verde |
+| HU-07 Validar letra repetida | CA-3 registro de letras durante toda la partida | (mismos escenarios que CA-1 y CA-2: necesitan varias jugadas en la misma partida) | | AT verde |
 
 ## Decisiones
 
@@ -34,3 +34,6 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
 - **HU-06 CA-1 no hizo falta refactor de producción.** El `goto` pasó del `Cuando` al `Dado` (commit `REFACTOR`) para que
   cualquier `Entonces` lea la página sin navegar; solo se movió código de los steps, no cambió ningún valor esperado.
   - **HU-04 CA-2 nació en verde sin cambios de producción.** Como `arriesgar()` lanza `EntradaInvalida` al principio del método (HU-04 CA-1) antes de restar `intentos_restantes` (HU-05), una entrada inválida corta la ejecución sin descontar intentos.
+- **La partida vive en la session de Flask (HU-07 CA-3).** La session guarda solo la palabra y las letras válidas jugadas;
+  en cada request la ruta reconstruye `Ahorcado` y vuelve a arriesgar esas letras. El dominio no sabe nada de la web.
+  Abrir `/?word=...` sin letra empieza una partida nueva.
