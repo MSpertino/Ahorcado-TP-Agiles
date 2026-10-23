@@ -59,3 +59,9 @@ def test_arriesgar_letra_minuscula_revela_sin_descontar_intento():
     juego.arriesgar("a")
     assert juego.palabra_enmascarada() == "_ A _ _"
     assert juego.intentos_restantes == 6
+
+def test_arriesgar_letra_repetida_se_rechaza():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    with pytest.raises(EntradaInvalida, match="Ya ingresaste esa letra"):
+        juego.arriesgar("E")
