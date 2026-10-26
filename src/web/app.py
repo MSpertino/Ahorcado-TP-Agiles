@@ -23,7 +23,7 @@ def create_app():
                 session["letras"] = session["letras"] + [request.args["letra"]]
             except EntradaInvalida as e:
                 error = str(e)
-        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=session["palabra"], error=error, intentos=juego.intentos_restantes)
+        return render_template("index.html", word=juego.palabra_enmascarada(), palabra=session["palabra"], error=error, intentos=juego.intentos_restantes, resultado=juego.resultado())
 
     return app
 
