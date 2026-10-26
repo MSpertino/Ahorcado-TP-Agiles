@@ -24,6 +24,9 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
 | HU-07 Validar letra repetida | CA-1 mensaje de aviso ante letra ya usada | `letra_repetida.feature` — El jugador ingresa una letra que ya usó | `test_arriesgar_letra_repetida_se_rechaza` | AT verde, UT verde |
 | HU-07 Validar letra repetida | CA-2 sin descuento ante letra repetida | `letra_repetida.feature` — Repetir una letra fallada no descuenta otro intento | | AT verde |
 | HU-07 Validar letra repetida | CA-3 registro de letras durante toda la partida | (mismos escenarios que CA-1 y CA-2: necesitan varias jugadas en la misma partida) | | AT verde |
+| HU-08 Ver resultado | CA-1 mensaje Ganaste al completar la palabra | `resultado_partida.feature` — El jugador completa la palabra y gana la partida | `test_ganar_partida_al_adivinar_todas_las_letras`, `test_partida_en_curso_no_tiene_resultado` | AT verde, UT verde |
+| HU-08 Ver resultado | CA-2 mensaje Perdiste al agotar los intentos | `resultado_partida.feature` — El jugador agota los intentos y pierde la partida | `test_perder_partida_al_agotar_intentos` | AT verde, UT verde |
+| HU-08 Ver resultado | CA-3 mensaje visible tras la última jugada | (mismos escenarios que CA-1 y CA-2: verifican el mensaje tras ingresar la última letra) | | AT verde |
 
 ## Decisiones
 

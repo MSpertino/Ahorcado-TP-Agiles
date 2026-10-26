@@ -25,4 +25,6 @@ class Ahorcado:
     def resultado(self):
         if all(letra in self.letras_arriesgadas for letra in self.palabra):
             return "Ganaste"
+        if self.intentos_restantes == 0:
+            return "Perdiste"
         return ""
