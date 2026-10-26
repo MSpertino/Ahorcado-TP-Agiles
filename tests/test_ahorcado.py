@@ -73,3 +73,8 @@ def test_ganar_partida_al_adivinar_todas_las_letras():
     juego.arriesgar("T")
     juego.arriesgar("O")
     assert juego.resultado() == "Ganaste"
+
+def test_partida_en_curso_no_tiene_resultado():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("G")
+    assert juego.resultado() == ""
