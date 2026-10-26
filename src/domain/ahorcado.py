@@ -21,3 +21,10 @@ class Ahorcado:
 
     def palabra_enmascarada(self):
         return " ".join(letra if letra in self.letras_arriesgadas else "_" for letra in self.palabra)
+
+    def resultado(self):
+        if all(letra in self.letras_arriesgadas for letra in self.palabra):
+            return "Ganaste"
+        if self.intentos_restantes == 0:
+            return "Perdiste"
+        return ""

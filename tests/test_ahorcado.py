@@ -65,3 +65,22 @@ def test_arriesgar_letra_repetida_se_rechaza():
     juego.arriesgar("E")
     with pytest.raises(EntradaInvalida, match="Ya ingresaste esa letra"):
         juego.arriesgar("E")
+
+def test_ganar_partida_al_adivinar_todas_las_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("G")
+    juego.arriesgar("A")
+    juego.arriesgar("T")
+    juego.arriesgar("O")
+    assert juego.resultado() == "Ganaste"
+
+def test_partida_en_curso_no_tiene_resultado():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("G")
+    assert juego.resultado() == ""
+
+def test_perder_partida_al_agotar_intentos():
+    juego = Ahorcado("GATO")
+    for letra in ["E", "I", "U", "L", "M", "N"]:
+        juego.arriesgar(letra)
+    assert juego.resultado() == "Perdiste"
