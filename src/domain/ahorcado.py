@@ -8,6 +8,8 @@ class Ahorcado:
         self.intentos_restantes = 6
 
     def arriesgar(self, letra):
+        if self.intentos_restantes == 0:
+            raise EntradaInvalida("La partida ya terminó")
         if len(letra) > 1:
             raise EntradaInvalida("Solo se permite una letra por vez")
         if not letra.isalpha():
