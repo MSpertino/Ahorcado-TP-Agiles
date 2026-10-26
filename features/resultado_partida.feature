@@ -14,3 +14,15 @@ Característica: Ver resultado de la partida
     Y el jugador ingresa la letra "T"
     Y el jugador ingresa la letra "O"
     Entonces se ve el mensaje de resultado "Ganaste"
+
+  @CA-2
+  @CA-3
+  Escenario: El jugador agota los intentos y pierde la partida
+    Dado una partida con la palabra "GATO"
+    Cuando el jugador ingresa la letra "E"
+    Y el jugador ingresa la letra "I"
+    Y el jugador ingresa la letra "U"
+    Y el jugador ingresa la letra "L"
+    Y el jugador ingresa la letra "M"
+    Y el jugador ingresa la letra "N"
+    Entonces se ve el mensaje de resultado "Perdiste"
