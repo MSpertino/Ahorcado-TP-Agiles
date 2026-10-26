@@ -84,3 +84,17 @@ def test_perder_partida_al_agotar_intentos():
     for letra in ["E", "I", "U", "L", "M", "N"]:
         juego.arriesgar(letra)
     assert juego.resultado() == "Perdiste"
+
+def test_arriesgar_con_la_partida_perdida_se_rechaza():
+    juego = Ahorcado("GATO")
+    for letra in "EIULMN":
+        juego.arriesgar(letra)
+    with pytest.raises(EntradaInvalida, match="La partida ya terminó"):
+        juego.arriesgar("P")
+
+def test_arriesgar_con_la_partida_ganada_se_rechaza():
+    juego = Ahorcado("GATO")
+    for letra in "GATO":
+        juego.arriesgar(letra)
+    with pytest.raises(EntradaInvalida, match="La partida ya terminó"):
+        juego.arriesgar("E")
