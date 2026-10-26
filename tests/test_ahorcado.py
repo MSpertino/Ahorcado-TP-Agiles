@@ -78,3 +78,9 @@ def test_partida_en_curso_no_tiene_resultado():
     juego = Ahorcado("GATO")
     juego.arriesgar("G")
     assert juego.resultado() == ""
+
+def test_perder_partida_al_agotar_intentos():
+    juego = Ahorcado("GATO")
+    for letra in ["E", "I", "U", "L", "M", "N"]:
+        juego.arriesgar(letra)
+    assert juego.resultado() == "Perdiste"
