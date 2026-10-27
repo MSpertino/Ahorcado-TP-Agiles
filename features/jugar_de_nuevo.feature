@@ -51,3 +51,15 @@ Característica: Jugar de nuevo
     Y el jugador aprieta el botón "Jugar de nuevo"
     Y el jugador ingresa la letra "E"
     Entonces no se ve ningún mensaje de error
+
+  @CA-2
+  Escenario: Al jugar de nuevo la palabra es distinta de la anterior
+    Dado una partida con la palabra "GATO"
+    Cuando el jugador ingresa la letra "E"
+    Y el jugador ingresa la letra "I"
+    Y el jugador ingresa la letra "U"
+    Y el jugador ingresa la letra "L"
+    Y el jugador ingresa la letra "M"
+    Y el jugador ingresa la letra "N"
+    Y el jugador aprieta el botón "Jugar de nuevo"
+    Entonces la palabra de la partida no es "GATO"

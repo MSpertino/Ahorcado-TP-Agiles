@@ -17,3 +17,7 @@ def entonces_no_hay_letras_reveladas(page):
 @then("no se ve ningún mensaje de resultado")
 def entonces_no_hay_resultado(page):
     assert page.get_by_test_id("resultado").text_content(timeout=2000) == ""
+
+@then(parsers.parse('la palabra de la partida no es "{palabra}"'))
+def entonces_palabra_distinta(page, palabra):
+    assert page.locator('input[name="word"]').input_value() != palabra
