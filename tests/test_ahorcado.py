@@ -104,3 +104,8 @@ def test_perder_partida_revela_la_palabra():
     for letra in "EIULMN":
         juego.arriesgar(letra)
     assert juego.palabra_revelada() == "GATO"
+
+def test_partida_en_curso_no_revela_la_palabra():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("G")
+    assert juego.palabra_revelada() == ""
