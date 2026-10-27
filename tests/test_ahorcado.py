@@ -1,6 +1,6 @@
 import pytest
 
-from src.domain.ahorcado import Ahorcado, EntradaInvalida
+from src.domain.ahorcado import Ahorcado, EntradaInvalida, PALABRAS, elegir_palabra
 
 @pytest.mark.parametrize("entrada", ["3", "#", " "], ids=["numero", "simbolo", "espacio"])
 def test_arriesgar_algo_que_no_es_letra_se_rechaza(entrada):
@@ -115,3 +115,6 @@ def test_ganar_partida_no_revela_la_palabra():
     for letra in "GATO":
         juego.arriesgar(letra)
     assert juego.palabra_revelada() == ""
+
+def test_elegir_palabra_devuelve_una_palabra_de_la_lista():
+    assert elegir_palabra("GATO") in PALABRAS
