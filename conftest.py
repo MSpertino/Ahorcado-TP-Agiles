@@ -71,3 +71,8 @@ def entonces_ve_mensaje_error(page, mensaje):
 def entonces_ve_mensaje_resultado(page, mensaje):
     resultado_el = page.get_by_test_id("resultado")
     assert resultado_el.text_content(timeout=2000) == mensaje
+
+@then("no se ve ningún mensaje de error")
+def entonces_no_hay_error(page):
+    error_el = page.get_by_test_id("error-message")
+    assert error_el.text_content() == ""
