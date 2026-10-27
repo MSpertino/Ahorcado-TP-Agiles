@@ -32,4 +32,6 @@ class Ahorcado:
         return ""
 
     def palabra_revelada(self):
-        return self.palabra
+        if self.resultado() == "Perdiste":
+            return self.palabra
+        return ""
