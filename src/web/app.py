@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, redirect, render_template, request, session
 
-from src.domain.ahorcado import Ahorcado, EntradaInvalida
+from src.domain.ahorcado import Ahorcado, EntradaInvalida, elegir_palabra
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -27,8 +27,9 @@ def create_app():
 
     @app.route("/nueva")
     def nueva():
+        anterior = session.get("palabra")
         session.clear()
-        return redirect("/")
+        return redirect(f"/?word={elegir_palabra(anterior)}")
 
     return app
 
