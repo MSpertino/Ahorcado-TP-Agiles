@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 
 from src.domain.ahorcado import Ahorcado, EntradaInvalida
 
@@ -24,6 +24,11 @@ def create_app():
             except EntradaInvalida as e:
                 error = str(e)
         return render_template("index.html", word=juego.palabra_enmascarada(), palabra=session["palabra"], error=error, intentos=juego.intentos_restantes, resultado=juego.resultado(), palabra_revelada=juego.palabra_revelada())
+
+    @app.route("/nueva")
+    def nueva():
+        session.clear()
+        return redirect("/")
 
     return app
 
