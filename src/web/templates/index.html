@@ -16,6 +16,11 @@
   <p data-testid="error-message">{{ error }}</p>
   <p data-testid="resultado">{{ resultado }}</p>
   <p data-testid="palabra-revelada">{{ palabra_revelada }}</p>
+  {% if resultado %}
+  <form method="get" action="/nueva">
+    <button type="submit" data-testid="jugar-de-nuevo">Jugar de nuevo</button>
+  </form>
+  {% endif %}
 </body>
 
 </html>
