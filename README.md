@@ -52,12 +52,12 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 ## Consignas técnicas del TP
 
 - [ ] **Story Mapping del producto** — primera versión + corte de MVP.
-- [ ] **Unit Tests con TDD** — lógica central desarrollada test-first.
-- [ ] **Single Repository** — todo el código en este repositorio.
-- [ ] **CI: compilación automática**
-- [ ] **CI: ejecución de Unit Tests**
-- [ ] **CI: Code Coverage**
-- [ ] **UI Web + Acceptance Tests** — al menos 4 escenarios automatizados (Cucumber/Gherkin + Selenium/Playwright o equivalente).
+- [x] **Unit Tests con TDD** — lógica central desarrollada test-first.
+- [x] **Single Repository** — todo el código en este repositorio.
+- [x] **CI: compilación automática**
+- [x] **CI: ejecución de Unit Tests**
+- [x] **CI: Code Coverage**
+- [x] **UI Web + Acceptance Tests** — al menos 4 escenarios automatizados (Cucumber/Gherkin + Selenium/Playwright o equivalente).
 - [ ] **CI/CD: deploy a producción** — repetible y trazable.
 - [ ] **CI: ejecución de Acceptance Tests** contra el ambiente desplegado.
 - [ ] **Análisis Estático de Código** (SonarQube/SonarCloud o equivalente).
