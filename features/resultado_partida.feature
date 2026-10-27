@@ -38,4 +38,14 @@ Característica: Ver resultado de la partida
     Y el jugador ingresa la letra "N"
     Y el jugador ingresa la letra "P"
     Entonces se ve el mensaje de resultado "Perdiste"
+
+  @CA-4
+  Escenario: El jugador no puede seguir jugando después de ganar
+    Dado una partida con la palabra "GATO"
+    Cuando el jugador ingresa la letra "G"
+    Y el jugador ingresa la letra "A"
+    Y el jugador ingresa la letra "T"
+    Y el jugador ingresa la letra "O"
+    Y el jugador ingresa la letra "E"
+    Entonces se ve el mensaje de error "La partida ya terminó"
     Y se ve el mensaje de error "La partida ya terminó"
