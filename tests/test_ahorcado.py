@@ -118,3 +118,7 @@ def test_ganar_partida_no_revela_la_palabra():
 
 def test_elegir_palabra_devuelve_una_palabra_de_la_lista():
     assert elegir_palabra("GATO") in PALABRAS
+
+def test_elegir_palabra_devuelve_una_palabra_distinta_de_la_anterior():
+    for anterior in PALABRAS:
+        assert elegir_palabra(anterior) != anterior
