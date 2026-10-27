@@ -32,4 +32,4 @@ class Ahorcado:
         return ""
 
     def palabra_revelada(self):
-        return ""
+        return self.palabra
