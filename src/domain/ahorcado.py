@@ -1,10 +1,12 @@
+import random
+
 class EntradaInvalida(Exception):
     pass
 
 PALABRAS = ["GATO", "PERRO", "CASA", "ARBOL", "LIBRO", "MESA", "SILLA", "PLAYA", "TREN", "FLOR"]
 
 def elegir_palabra(anterior):
-    return PALABRAS[0]
+    return random.choice([palabra for palabra in PALABRAS if palabra != anterior])
 
 class Ahorcado:
     def __init__(self, palabra):
