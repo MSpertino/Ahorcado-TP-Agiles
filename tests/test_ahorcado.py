@@ -109,3 +109,9 @@ def test_partida_en_curso_no_revela_la_palabra():
     juego = Ahorcado("GATO")
     juego.arriesgar("G")
     assert juego.palabra_revelada() == ""
+
+def test_ganar_partida_no_revela_la_palabra():
+    juego = Ahorcado("GATO")
+    for letra in "GATO":
+        juego.arriesgar(letra)
+    assert juego.palabra_revelada() == ""
