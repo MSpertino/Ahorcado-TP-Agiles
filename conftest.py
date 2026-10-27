@@ -66,3 +66,8 @@ def abrir_juego_sin_palabra(page, live_server):
 def entonces_ve_mensaje_error(page, mensaje):
     error_el = page.get_by_test_id("error-message")
     assert error_el.text_content() == mensaje
+
+@then(parsers.parse('se ve el mensaje de resultado "{mensaje}"'))
+def entonces_ve_mensaje_resultado(page, mensaje):
+    resultado_el = page.get_by_test_id("resultado")
+    assert resultado_el.text_content(timeout=2000) == mensaje
