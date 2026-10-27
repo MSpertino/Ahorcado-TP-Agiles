@@ -4,7 +4,7 @@ class EntradaInvalida(Exception):
 PALABRAS = ["GATO", "PERRO", "CASA", "ARBOL", "LIBRO", "MESA", "SILLA", "PLAYA", "TREN", "FLOR"]
 
 def elegir_palabra(anterior):
-    return ""
+    return PALABRAS[0]
 
 class Ahorcado:
     def __init__(self, palabra):
