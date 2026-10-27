@@ -98,3 +98,9 @@ def test_arriesgar_con_la_partida_ganada_se_rechaza():
         juego.arriesgar(letra)
     with pytest.raises(EntradaInvalida, match="La partida ya terminó"):
         juego.arriesgar("E")
+
+def test_perder_partida_revela_la_palabra():
+    juego = Ahorcado("GATO")
+    for letra in "EIULMN":
+        juego.arriesgar(letra)
+    assert juego.palabra_revelada() == "GATO"

@@ -30,3 +30,6 @@ class Ahorcado:
         if self.intentos_restantes == 0:
             return "Perdiste"
         return ""
+
+    def palabra_revelada(self):
+        return ""
