@@ -58,3 +58,8 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
   (o la por defecto), así que `/nueva` redirige a `/?word=<elegida>`. El AT verifica la palabra leyendo el campo oculto `word`.
   El dominio expone `elegir_palabra(anterior)`: se probó con dos ejemplos (devuelve una de la lista, y distinta de la anterior);
   el primero se resolvió con `PALABRAS[0]` y el segundo obligó a filtrar y elegir con `random.choice`.
+- **Deploy a producción en Render, disparado por el CI.** `render.yaml` define el servicio con el auto-deploy de Render apagado:
+  el job `deploy` llama al deploy hook con `ref=<commit>` solo si pasaron build, UT y AT, y queda registrado en el environment
+  `production` de GitHub (qué commit está en producción y cuándo se desplegó). Para saber cuándo terminó, el CI consulta `/version`,
+  que devuelve `RENDER_GIT_COMMIT`; así no hace falta una API key de Render en GitHub, solo el secret `RENDER_DEPLOY_HOOK` y la
+  variable `RENDER_URL`. Después corre `acceptance-tests-produccion`: los mismos `.feature` con `BASE_URL` apuntando a Render.

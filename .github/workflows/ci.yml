@@ -54,3 +54,41 @@ jobs:
         run: playwright install --with-deps chromium
       - name: Acceptance tests
         run: python -m pytest features/ -q
+
+  deploy:
+    needs: acceptance-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.RENDER_URL != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.RENDER_URL }}
+    concurrency: production
+    steps:
+      - uses: actions/checkout@v6
+      - name: Deploy a Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          RENDER_URL: ${{ vars.RENDER_URL }}
+        run: bash deploy/render-deploy.sh ${{ github.sha }}
+
+  acceptance-tests-produccion:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Instalar Chromium
+        run: playwright install --with-deps chromium
+      - name: Despertar la app (el plan free de Render se duerme)
+        run: curl -fsS --retry 10 --retry-delay 10 --retry-all-errors -o /dev/null ${{ vars.RENDER_URL }}
+      - name: Acceptance tests contra producción
+        env:
+          BASE_URL: ${{ vars.RENDER_URL }}
+        run: python -m pytest features/ -q
