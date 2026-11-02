@@ -6,6 +6,14 @@
 
 **Integrantes:** Esteban Karlen Aguirre; Gabriel Perlin; Tomás Sanchez Machado; Mateo Spertino
 
+## Aplicación en producción
+
+https://ahorcado-wgp8.onrender.com
+
+Se despliega en Render automáticamente con cada push a `main` que pasa build, unit tests y acceptance tests; después el CI vuelve a correr los acceptance tests contra producción. El commit desplegado se ve en [`/version`](https://ahorcado-wgp8.onrender.com/version) y el historial de deploys en el environment `production` del repo.
+
+> Plan free de Render: si nadie la usa por 15 minutos se duerme y el primer acceso tarda unos 50 segundos.
+
 ## Descripción del producto
 
 Desarrollo de una versión web del **Juego del Ahorcado**, construida aplicando prácticas ágiles de ingeniería que permitan evolucionar, probar e integrar el producto de manera continua.
@@ -58,14 +66,17 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 - [x] **CI: ejecución de Unit Tests**
 - [x] **CI: Code Coverage**
 - [x] **UI Web + Acceptance Tests** — al menos 4 escenarios automatizados (Cucumber/Gherkin + Selenium/Playwright o equivalente).
-- [ ] **CI/CD: deploy a producción** — repetible y trazable.
-- [ ] **CI: ejecución de Acceptance Tests** contra el ambiente desplegado.
+- [x] **CI/CD: deploy a producción** — repetible y trazable.
+- [x] **CI: ejecución de Acceptance Tests** contra el ambiente desplegado.
 - [ ] **Análisis Estático de Código** (SonarQube/SonarCloud o equivalente).
 
 ## Stack tecnológico
 
 - **Lenguaje:** Python
 - **Testing (Unit Tests):** pytest
+- **Web:** Flask + Gunicorn
+- **Acceptance Tests:** pytest-bdd (Gherkin) + Playwright
+- **CI/CD:** GitHub Actions + Render
 
 ## Licencia
 
