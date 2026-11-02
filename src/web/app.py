@@ -31,6 +31,10 @@ def create_app():
         session.clear()
         return redirect(f"/?word={elegir_palabra(anterior)}")
 
+    @app.route("/version")
+    def version():
+        return os.environ.get("RENDER_GIT_COMMIT", "")
+
     return app
 
 # El botón de encendido

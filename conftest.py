@@ -1,3 +1,4 @@
+import os
 import threading
 from types import SimpleNamespace
 
@@ -26,6 +27,12 @@ def app():
 
 @pytest.fixture(scope="session")
 def live_server(app):
+    # Con BASE_URL los tests corren contra un ambiente desplegado (ej. producción)
+    base_url = os.environ.get("BASE_URL")
+    if base_url:
+        yield SimpleNamespace(url=lambda: base_url.rstrip("/"))
+        return
+
     server = make_server("127.0.0.1", 0, app)
     port = server.server_port
     thread = threading.Thread(target=server.serve_forever)
