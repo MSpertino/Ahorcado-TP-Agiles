@@ -4,6 +4,7 @@ class EntradaInvalida(Exception):
     pass
 
 PALABRAS = ["GATO", "PERRO", "CASA", "ARBOL", "LIBRO", "MESA", "SILLA", "PLAYA", "TREN", "FLOR"]
+TABLA_ACENTOS = str.maketrans("ÁÉÍÓÚÜ", "AEIOUU")
 
 def elegir_palabra(anterior):
     return random.choice([palabra for palabra in PALABRAS if palabra != anterior])
@@ -21,7 +22,7 @@ class Ahorcado:
             raise EntradaInvalida("Solo se permite una letra por vez")
         if not letra.isalpha():
             raise EntradaInvalida("Solo se permiten letras")
-        letra = letra.upper()
+        letra = letra.upper().translate(TABLA_ACENTOS)
         if letra in self.letras_arriesgadas:
             raise EntradaInvalida("Ya ingresaste esa letra")
         self.letras_arriesgadas.add(letra)
