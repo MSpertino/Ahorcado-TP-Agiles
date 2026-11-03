@@ -122,3 +122,9 @@ def test_elegir_palabra_devuelve_una_palabra_de_la_lista():
 def test_elegir_palabra_devuelve_una_palabra_distinta_de_la_anterior():
     for anterior in PALABRAS:
         assert elegir_palabra(anterior) != anterior
+
+def test_arriesgar_letra_con_tilde_acierta_sin_descontar_intento():
+    juego = Ahorcado("ARBOL")
+    juego.arriesgar("á")
+    assert juego.palabra_enmascarada() == "A _ _ _ _"
+    assert juego.intentos_restantes == 6
