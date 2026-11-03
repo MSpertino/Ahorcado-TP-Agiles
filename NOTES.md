@@ -63,3 +63,6 @@ Correr los AT de una historia: `pytest -m HU-03 features/` · un criterio: `pyte
   `production` de GitHub (qué commit está en producción y cuándo se desplegó). Para saber cuándo terminó, el CI consulta `/version`,
   que devuelve `RENDER_GIT_COMMIT`; así no hace falta una API key de Render en GitHub, solo el secret `RENDER_DEPLOY_HOOK` y la
   variable `RENDER_URL`. Después corre `acceptance-tests-produccion`: los mismos `.feature` con `BASE_URL` apuntando a Render.
+- **Estrategia ante fallo de Acceptance Tests en producción.** Como el job `deploy` corre antes que `acceptance-tests-produccion`, si estos últimos fallan significa que se desplegó una versión con un defecto en el ambiente real. La estrategia inmediata ante esta alerta del CI es ejecutar un **Rollback**:
+  1. Revertir el commit defectuoso en `main` (`git revert <sha>`) o disparar un redeploy inmediato del último commit verde en Render.
+  2. Como los AT corren contra el commit específico, el pipeline fallado bloquea la integración de nuevas ramas hasta que producción vuelva a estar en verde.
