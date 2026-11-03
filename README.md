@@ -68,7 +68,7 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 - [x] **UI Web + Acceptance Tests** — al menos 4 escenarios automatizados (Cucumber/Gherkin + Selenium/Playwright o equivalente).
 - [x] **CI/CD: deploy a producción** — repetible y trazable.
 - [x] **CI: ejecución de Acceptance Tests** contra el ambiente desplegado.
-- [ ] **Análisis Estático de Código** (SonarQube/SonarCloud o equivalente).
+- [x] **Análisis Estático de Código** (SonarQube/SonarCloud o equivalente).
 
 ## Stack tecnológico
 
