@@ -37,9 +37,35 @@ jobs:
         run: pip install -r requirements.txt
       - name: Unit tests y coverage del dominio (mínimo 90%)
         run: python -m pytest tests/ --cov=src/domain --cov-report=term-missing --cov-report=xml --cov-fail-under=90
+      - name: Subir reporte de cobertura
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+  sonarqube:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Descargar reporte de cobertura
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   acceptance-tests:
-    needs: unit-tests
+    needs: sonarqube
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
