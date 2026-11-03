@@ -14,6 +14,12 @@ Se despliega en Render automáticamente con cada push a `main` que pasa build, u
 
 > Plan free de Render: si nadie la usa por 15 minutos se duerme y el primer acceso tarda unos 50 segundos.
 
+## Dashboard de calidad (SonarQube Cloud)
+
+https://sonarcloud.io/project/overview?id=Ahorcado-TP-Agiles-Grupo12
+
+Análisis estático de código automático con Quality Gate que corta el pipeline ante presencia de bugs, vulnerabilidades o caída de cobertura. Los reportes de cobertura generados por `pytest` se integran automáticamente en cada build.
+
 ## Descripción del producto
 
 Desarrollo de una versión web del **Juego del Ahorcado**, construida aplicando prácticas ágiles de ingeniería que permitan evolucionar, probar e integrar el producto de manera continua.
