@@ -136,3 +136,11 @@ def test_fallar_letra_con_tilde_descuenta_intento_y_se_registra_normalizada():
     assert "E" in juego.letras_arriesgadas
     with pytest.raises(EntradaInvalida):
         juego.arriesgar("e")
+
+def test_arriesgar_letra_enie_se_preserva():
+    juego = Ahorcado("AÑO")
+    juego.arriesgar("ñ")
+    assert juego.palabra_enmascarada() == "_ Ñ _"
+    assert juego.intentos_restantes == 6
+    assert "Ñ" in juego.letras_arriesgadas
+    assert "N" not in juego.letras_arriesgadas
