@@ -20,3 +20,10 @@ Característica: Soporte de acentos y caracteres especiales
     Cuando el jugador ingresa la letra "E"
     Entonces se ve el mensaje de error "Ya ingresaste esa letra"
     Y se ven 5 intentos restantes
+
+  @CA-3
+  Escenario: La letra Ñ se preserva correctamente
+    Dado una partida con la palabra "AÑO"
+    Cuando el jugador ingresa la letra "ñ"
+    Entonces se ve la palabra "_ Ñ _"
+    Y se ven 6 intentos restantes
