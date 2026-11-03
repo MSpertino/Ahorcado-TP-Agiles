@@ -128,3 +128,11 @@ def test_arriesgar_letra_con_tilde_acierta_sin_descontar_intento():
     juego.arriesgar("á")
     assert juego.palabra_enmascarada() == "A _ _ _ _"
     assert juego.intentos_restantes == 6
+
+def test_fallar_letra_con_tilde_descuenta_intento_y_se_registra_normalizada():
+    juego = Ahorcado("ARBOL")
+    juego.arriesgar("é")
+    assert juego.intentos_restantes == 5
+    assert "E" in juego.letras_arriesgadas
+    with pytest.raises(EntradaInvalida):
+        juego.arriesgar("e")
