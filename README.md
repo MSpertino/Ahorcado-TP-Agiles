@@ -85,6 +85,26 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 - **CI/CD:** GitHub Actions + Render
 - **SonarQube Cloud:** Análisis estático de código y Quality Gate.
 
+## Cómo ejecutar el proyecto
+
+**1. Instalar dependencias:**
+`pip install -r requirements.txt`
+`playwright install chromium`
+
+**2. Levantar la aplicación web:**
+`python -m flask --app src/web/app run`
+La aplicación estará disponible en http://127.0.0.1:5000/
+
+**3. Correr las pruebas:**
+Para los Unit Tests (lógica de dominio): `python -m pytest tests/`
+Para los Acceptance Tests (comportamiento UI): `python -m pytest features/`
+
+## Funcionalidades Extra (Aprobación Directa)
+- [x] HU-11: Soporte de acentos y la letra ñ.
+- [ ] Extra 2: (Por definir)
+- [ ] Extra 3: (Por definir)
+- [ ] Extra 4: (Por definir)
+
 ## Licencia
 
 Trabajo práctico académico — UTN FRRO.
