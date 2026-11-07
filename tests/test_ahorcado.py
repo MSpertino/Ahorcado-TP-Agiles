@@ -177,3 +177,10 @@ def test_letras_acertadas_devuelve_aciertos_ordenados():
     juego.arriesgar("E")
     juego.arriesgar("A")
     assert juego.letras_acertadas() == "A"
+
+def test_letras_acertadas_con_multiples_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("T")
+    juego.arriesgar("G")
+    juego.arriesgar("Z")
+    assert juego.letras_acertadas() == "G T"
