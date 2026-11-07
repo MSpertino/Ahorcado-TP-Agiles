@@ -48,4 +48,4 @@ class Ahorcado:
         return " ".join(sorted(self.letras_arriesgadas))
 
     def letras_acertadas(self):
-        return "A"
+        return " ".join(sorted(l for l in self.letras_arriesgadas if l in self.palabra))
