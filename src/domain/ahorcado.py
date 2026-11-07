@@ -46,3 +46,6 @@ class Ahorcado:
 
     def letras_usadas(self):
         return " ".join(sorted(self.letras_arriesgadas))
+
+    def letras_acertadas(self):
+        return ""

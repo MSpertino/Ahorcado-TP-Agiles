@@ -171,3 +171,9 @@ def test_letras_usadas_con_otras_letras():
 def test_partida_nueva_no_tiene_letras_usadas():
     juego = Ahorcado("GATO")
     assert juego.letras_usadas() == ""
+
+def test_letras_acertadas_devuelve_aciertos_ordenados():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_acertadas() == "A"
