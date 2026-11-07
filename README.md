@@ -83,6 +83,7 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 - **Web:** Flask + Gunicorn
 - **Acceptance Tests:** pytest-bdd (Gherkin) + Playwright
 - **CI/CD:** GitHub Actions + Render
+- **SonarQube Cloud:** Análisis estático de código y Quality Gate.
 
 ## Licencia
 
