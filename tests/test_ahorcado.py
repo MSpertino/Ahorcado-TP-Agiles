@@ -144,3 +144,14 @@ def test_arriesgar_letra_enie_se_preserva():
     assert juego.intentos_restantes == 6
     assert "Ñ" in juego.letras_arriesgadas
     assert "N" not in juego.letras_arriesgadas
+
+@pytest.mark.parametrize("palabra, letra, esperada", [
+    ("PIZZA", "í", "_ I _ _ _"),
+    ("SOL", "ó", "_ O _"),
+    ("LUNA", "ú", "_ U _ _"),
+    ("LUNA", "ü", "_ U _ _"),
+])
+def test_arriesgar_vocal_con_tilde_o_dieresis_se_normaliza(palabra, letra, esperada):
+    juego = Ahorcado(palabra)
+    juego.arriesgar(letra)
+    assert juego.palabra_enmascarada() == esperada
