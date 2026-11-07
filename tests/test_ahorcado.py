@@ -155,3 +155,9 @@ def test_arriesgar_vocal_con_tilde_o_dieresis_se_normaliza(palabra, letra, esper
     juego = Ahorcado(palabra)
     juego.arriesgar(letra)
     assert juego.palabra_enmascarada() == esperada
+
+def test_letras_usadas_devuelve_las_jugadas_ordenadas():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_usadas() == "A E"

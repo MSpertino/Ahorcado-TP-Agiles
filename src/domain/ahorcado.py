@@ -43,3 +43,6 @@ class Ahorcado:
         if self.resultado() == "Perdiste":
             return self.palabra
         return ""
+
+    def letras_usadas(self):
+        return ""
