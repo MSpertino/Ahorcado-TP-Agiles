@@ -65,7 +65,7 @@ Quedan fuera del MVP (Release 2 y 3): configuración de dificultad/idioma/catego
 
 ## Consignas técnicas del TP
 
-- [ ] **Story Mapping del producto** — primera versión + corte de MVP.
+- [x] **Story Mapping del producto** — primera versión + corte de MVP.
 - [x] **Unit Tests con TDD** — lógica central desarrollada test-first.
 - [x] **Single Repository** — todo el código en este repositorio.
 - [x] **CI: compilación automática**
