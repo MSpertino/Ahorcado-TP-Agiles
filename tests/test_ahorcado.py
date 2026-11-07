@@ -184,3 +184,9 @@ def test_letras_acertadas_con_multiples_letras():
     juego.arriesgar("G")
     juego.arriesgar("Z")
     assert juego.letras_acertadas() == "G T"
+
+def test_letras_falladas_devuelve_fallos_ordenados():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_falladas() == "E"
