@@ -161,3 +161,9 @@ def test_letras_usadas_devuelve_las_jugadas_ordenadas():
     juego.arriesgar("E")
     juego.arriesgar("A")
     assert juego.letras_usadas() == "A E"
+
+def test_letras_usadas_con_otras_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("T")
+    juego.arriesgar("G")
+    assert juego.letras_usadas() == "G T"
