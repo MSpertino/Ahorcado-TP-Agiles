@@ -190,3 +190,10 @@ def test_letras_falladas_devuelve_fallos_ordenados():
     juego.arriesgar("E")
     juego.arriesgar("A")
     assert juego.letras_falladas() == "E"
+
+def test_letras_falladas_con_multiples_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("Z")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_falladas() == "E Z"
