@@ -45,4 +45,4 @@ class Ahorcado:
         return ""
 
     def letras_usadas(self):
-        return ""
+        return "A E"
