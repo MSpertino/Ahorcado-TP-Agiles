@@ -43,3 +43,15 @@ class Ahorcado:
         if self.resultado() == "Perdiste":
             return self.palabra
         return ""
+
+    def _letras_formateadas(self, letras):
+        return " ".join(sorted(letras))
+
+    def letras_usadas(self):
+        return self._letras_formateadas(self.letras_arriesgadas)
+
+    def letras_acertadas(self):
+        return self._letras_formateadas(l for l in self.letras_arriesgadas if l in self.palabra)
+
+    def letras_falladas(self):
+        return self._letras_formateadas(l for l in self.letras_arriesgadas if l not in self.palabra)

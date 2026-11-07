@@ -155,3 +155,45 @@ def test_arriesgar_vocal_con_tilde_o_dieresis_se_normaliza(palabra, letra, esper
     juego = Ahorcado(palabra)
     juego.arriesgar(letra)
     assert juego.palabra_enmascarada() == esperada
+
+def test_letras_usadas_devuelve_las_jugadas_ordenadas():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_usadas() == "A E"
+
+def test_letras_usadas_con_otras_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("T")
+    juego.arriesgar("G")
+    assert juego.letras_usadas() == "G T"
+
+def test_partida_nueva_no_tiene_letras_usadas():
+    juego = Ahorcado("GATO")
+    assert juego.letras_usadas() == ""
+
+def test_letras_acertadas_devuelve_aciertos_ordenados():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_acertadas() == "A"
+
+def test_letras_acertadas_con_multiples_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("T")
+    juego.arriesgar("G")
+    juego.arriesgar("Z")
+    assert juego.letras_acertadas() == "G T"
+
+def test_letras_falladas_devuelve_fallos_ordenados():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_falladas() == "E"
+
+def test_letras_falladas_con_multiples_letras():
+    juego = Ahorcado("GATO")
+    juego.arriesgar("Z")
+    juego.arriesgar("E")
+    juego.arriesgar("A")
+    assert juego.letras_falladas() == "E Z"

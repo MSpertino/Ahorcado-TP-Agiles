@@ -9,6 +9,9 @@
 <body>
   <p>Palabra: <span data-testid="word">{{ word }}</span></p>
   <p>Intentos restantes: <span data-testid="intentos">{{ intentos }}</span></p>
+  <p>Letras usadas: <span data-testid="letras-usadas">{{ letras_usadas }}</span></p>
+  <p>Acertadas: <span data-testid="letras-acertadas">{{ letras_acertadas }}</span></p>
+  <p>Falladas: <span data-testid="letras-falladas">{{ letras_falladas }}</span></p>
   <form method="get" action="/">
     <input type="hidden" name="word" value="{{ palabra }}" />
     <input type="text" name="letra" data-testid="letra-input" />

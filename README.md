@@ -100,8 +100,9 @@ Para los Unit Tests (lógica de dominio): `python -m pytest tests/`
 Para los Acceptance Tests (comportamiento UI): `python -m pytest features/`
 
 ## Funcionalidades Extra (Aprobación Directa)
+
 - [x] HU-11: Soporte de acentos y la letra ñ.
-- [ ] Extra 2: (Por definir)
+- [x] HU-15: Visualización de letras usadas, distinguiendo entre letras acertadas y letras falladas.
 - [ ] Extra 3: (Por definir)
 - [ ] Extra 4: (Por definir)
 
